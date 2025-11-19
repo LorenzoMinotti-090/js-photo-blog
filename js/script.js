@@ -24,3 +24,18 @@ axios.get("https://lanciweb.github.io/demo/api/pictures/")
     container.insertAdjacentHTML("beforeend", contentString);
     
   })
+
+  const overlay = document.getElementById("simpleOverlay");
+const overlayImg = overlay.querySelector("img");
+
+document.querySelector(".board").addEventListener("click", function(e) {
+  const img = e.target.closest(".card-img-top");
+  if (img) {
+    overlayImg.src = img.src;
+    overlay.style.display = "flex";
+  }
+});
+
+overlay.addEventListener("click", function() {
+  overlay.style.display = "none";
+});
